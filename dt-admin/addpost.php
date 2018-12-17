@@ -25,7 +25,7 @@
       move_uploaded_file($_FILES["imageselect"]["tmp_name"], $ImageDir);
       if($Execute) {
         $_SESSION['SuccessMessage'] = "Post created successfully";
-        $drunt-> redirect("addpost.php");
+        $drunt-> redirect("post.php");
       } else {
         $_SESSION['ErrorMessage'] = "Failed to submit! Try again";
         $drunt-> redirect("addpost.php");
@@ -63,7 +63,7 @@
 
             <div class="row">
                 <div class="col-lg-9">
-                <?php echo ErrorMessage(); echo SuccessMessage(); ?>
+                <?php echo ErrorMessage(); ?>
                         <!-- Post Title-->
                         <div class="card">
                             <div class="card-header">

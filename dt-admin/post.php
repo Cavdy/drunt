@@ -26,6 +26,7 @@
 
     <div class="content mt-3">
         <div class="animated fadeIn">
+        <?php echo SuccessMessage(); ?>
             <div class="row">
                 <div class="col-md-3">
                     <div class="card">
@@ -43,27 +44,30 @@
                             <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
                                 <thead>
                                     <tr>
-                                        <th>Name</th>
-                                        <th>Position</th>
+                                        <th>Title</th>
+                                        <th>Category</th>
+                                        <th>Author</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 <?php
                                     global $connect;
-                                    $ViewQuery = "SELECT * FROM dt_category ORDER BY datetime desc";
+                                    $ViewQuery = "SELECT * FROM dt_addpost";
                                     $Execute = mysqli_query($connect, $ViewQuery);
 
                                     while ($DataRows = mysqli_fetch_array($Execute)) {
-                                        $Id = $DataRows['category_id'];
-                                        $Category_name = $DataRows['category_name'];
-                                        $Author = $DataRows['creator_name'];
+                                        $Id = $DataRows['post_id'];
+                                        $Post_title = $DataRows['post_title'];
+                                        $Post_category = $DataRows['post_category'];
+                                        $Author = $DataRows['post_author'];
 
-                                    ?>
+                                ?>
                                     <tr>
-                                        <td><?php echo $Category_name; ?></td>
+                                        <td><?php echo $Post_title; ?></td>
+                                        <td><?php echo $Post_category; ?></td>
                                         <td><?php echo $Author; ?></td>
                                     </tr>
-                                    <?php } ?>
+                                <?php } ?>
                                 </tbody>
                             </table>
                         </div>
