@@ -9,7 +9,7 @@
     $postCategory = $drunt-> checkInput($_POST['category']);
     $admin = "Cavdy";
     $Image = $_FILES["imageselect"]['name'];
-    $ImageDir = "assets/upload/images".basename($Image);
+    $ImageDir = "assets/upload/images/".basename($Image);
 
     if(empty($postTitle) || empty($postContent) || empty($postCategory)) {
       $_SESSION['ErrorMessage'] = "All fields are required";
